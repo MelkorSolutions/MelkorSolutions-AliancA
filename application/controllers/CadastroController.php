@@ -17,9 +17,8 @@ class CadastroController extends Zend_Controller_Action
     {
         // action body
         $model = new Application_Model_Empresa();
-        
         $model->insert($this->_getAllParams());
- 
+
         $this->_redirect('index');
     }
 
