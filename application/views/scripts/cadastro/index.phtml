@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="pt-br">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Aliança</title>
+		<link rel="stylesheet" type="text/css" href="styles/layout_A.css" />
+		<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"></script>
+        
+        <!-- Script para mascarar alguns campos-->
+	          <script type="text/javascript">
+                   $(document).ready(function() { 
+                      $("#telefone").mask("(99) 9999-9999"); 
+                      $("#cep").mask("99999-999");
+                      $("#cnpj").mask("99.999.999/9999-99");
+                      $("#cpf").mask("999.999.999-99"); 
+                    });
+              </script>
+              
+	</head>
+	<body>
+		<div id="corpo">
+			<div id="topo">
+				<div id="topoDireita">
+					<a href="portugues.html"><img src="img/icones/portugues_topo_icon.png"/></a>
+					<a href="ingles.html"><img src="img/icones/ingles_topo_icon.png"/></a>
+					<a href="espanhol.html"><img src="img/icones/espanhol_topo_icon.png"/></a>
+					<a href="ajuda.html"><img src="img/icones/ajuda_topo_icon.png"/></a>
+				</div>
+			</div>
+			<div id="menuWrapper">
+				<a href="home_C.html"><img id="logo" src="img/logos/alianca_logo.png"/></a>
+				<ul>
+					<li><a href="">Entrar</a></li>
+					<li><a href="">Cadastre-se</a></li>
+					<li><a href="">Quem somos</a></li>
+					<li><a href="">Contato</a></li>
+					<li><a href="">FAQ</a></li>
+					<li><a href="">Planos</a></li>
+				</ul>
+			</div>
+			<div id="cadastro">
+				<div id="tituloCadastro">
+					<p class="titulo"> Cadastro </p>
+				</div>
+				<form  id="formulario" method="post" onsubmit="return validateForm()" 
+                                       action="<?=$this->url(array("controller"=>"cadastro","action"=>"create"),null,true)?>">
+                     <fieldset>
+			                <legend>Dados Da Empresa</legend>
+
+			                <div id="blocoCadastroEsq">
+                                <label for="nomeEmpresa">Nome da Empresa</label><br />
+			                    <input type="text" name="nomeEmpresa" id="nomeEmpresa" size="45" />
+
+			                    <br />
+			                   	
+			                   	<label for="cnpj">CNPJ<br /></label>
+			                    <input type="text" name="cnpj" id="cnpj" size="21" required/>
+
+			                    <br />
+			                    <br />
+			                   	
+			                    <label for="email">E-mail Corporativo (Login)<br /></label>
+			                    <input type="text" name="email" id="email" size="40" required/>
+
+			                    <br />
+			                   	
+			                    <label for="senha">Senha<br /></label>
+			                    <input type="password" name="senha" id="senha" size="18" required/>
+
+			                    <br />
+			                   	
+			                    <label for="confSenha">Confirmar Senha<br /></label>
+			                    <input type="password" name="confSenha" id="confSenha" size="18" />
+               			    </div>
+
+			                <div id="blocoCadastroDir">
+			                	<label for="logradouro">Logradouro<br /></label>
+			                    <input type="text" name="logradouro" id="logradouro" size="60" required/>
+
+			                    <br />
+
+			                    <label for="bairro">Bairro<br /></label>
+			                    <input type="text" name="bairro" id="bairro" size="40" required/>
+
+			                    <br />
+			                  <li>
+
+			                    <label for="cidade">Cidade<br /></label>
+			                    <input type="text" name="cidade" id="cidade" size="40" required/>
+
+			                    <label for="uf">UF</label>
+			                    <input type="text" name="uf" id="uf" size="2" required/>
+
+			                    <br />
+                              </li>
+
+			                    <label for="cep">CEP<br /></label>
+			                    <input type="text" name="cep" id="cep" size="11" required/>
+
+			                    <br />
+
+			                    <label for="telefone">Telefone<br /></label>
+			                    <input type="text" name="telefone" id="telefone" size="16" required/>
+			                </div>
+			         </fieldset>    
+
+			         <fieldset>   
+                            <legend>Dados Do Representante</legend>
+
+                            <div id="cadastroRepresentanteEsq">
+
+                                <label for="nome">Nome<br /></label>
+			                    <input type="text" name="nome" id="nome" size="50" required/>
+
+			                    <br />
+
+			                    <label for="sobrenome">Sobrenome<br /></label>
+			                    <input type="text" name="sobrenome" id="sobrenome" size="50" required/>
+
+			                    <br />
+
+			                    <label for="cpf">CPF<br /></label>
+			                    <input type="text" name="cpf" id="cpf" size="16" required/>
+
+			                    <br />
+                            </div>
+
+                            <div id="cadastroRepresentanteDir">
+			                    <label for="observacao" >Observação</br /></label>
+			                    <textarea id="campoObservacao" rows="10" cols="45" maxlength="300"></textarea>
+                            </div>
+
+					 </fieldset>
+<br>
+
+                     <fieldset>
+			            <ul id="planos">
+
+				            <li>
+					            <h1>Plano Básico</h1>
+					            <div class="texto">
+						            When a user clicks on a radio-button, it becomes checked, and all other radio-buttons with equal name become unchecked.
+					            </div>
+					            <div class="btn">
+						            <label for="planoBasico">$$$ Plano Básico<br />
+						            <input type="radio" value="planoBasico" name="plano" /></label>
+					           </div>
+				            </li>
+
+				            <li>
+					            <h1>Plano Intermediário</h1>
+					            <div class="texto">
+						            When a user clicks on a radio-button, it becomes checked, and all other radio-buttons with equal name become unchecked.
+					            </div>
+					            <div class="btn">
+						            <label for="planoIntermediario">$$$ Plano Intermediário<br />
+						            <input type="radio" value="planoIntermediario" name="plano" /></label>
+					            </div>
+				            </li>
+
+				            <li>
+				             	<h1>Plano Premium</h1>
+					            <div class="texto">
+						            When a user clicks on a radio-button, it becomes checked, and all other radio-buttons with equal name become unchecked.
+					            </div>
+					            <div class="btn">
+						            <label for="planoPrmium">$$$ Plano Premium<br />
+						            <input type="radio" value="planoPrmium" name="plano" /></label>
+					            </div>
+				            </li>
+
+				            <div class="limparFloat"></div>
+			            </ul>
+		             </fieldset>
+<br>
+<br>
+                     
+                     <fieldset>
+                               
+                            <div id="formBotao">
+	                          
+	                            <center><input name="submit" class="botao" type="submit" value="CONFIRMAR" tabindex="9" /></center>   
+                            </div>
+
+                     </fieldset>    
+                                               
+		                  
+                    </form>
+				
+			</div>
+		</div>
+		<div id="rodape">
+			<div id="esquerda_rodape">
+				<a href="">
+					<img class="social_img" src="img/icones_rodape/facebook_0.png" />
+				</a>
+				<p class="social_texto">Facebook
+				</p>
+				<a href="">				
+					<img class="social_img" src="img/icones_rodape/twitter_0.png" />
+				</a>
+				<p class="social_texto">Twitter
+				</p>
+				<a href="">
+					<img class="social_img" src="img/icones_rodape/rss-feed_0.png" />
+				</a>
+				<p class="social_texto">RSS
+				</p>
+				<a href="">
+					<img class="social_img" src="img/icones_rodape/linkedin_0.png" />
+				</a>
+				<p class="social_texto">Linkedin
+				</p>
+				<a href="">
+					<img class="social_img" src="img/icones_rodape/google-plus_0.png" />
+				</a>
+				<p class="social_texto">Google+
+				</p>
+				<a href="">
+					<img class="social_img" src="img/icones_rodape/blogger_0.png" />
+				</a>
+				<p class="social_texto">Blogger
+				</p>
+			</div>
+			<div id="centro_rodape">
+				<a href="" class="link_vertical">
+					<p class="vertical_texto">Cadastre-se</p>
+				</a>
+				<a href="" class="link_vertical">
+					<p class="vertical_texto">Quem somos</p>
+				</a>
+				<a href="" class="link_vertical">
+					<p class="vertical_texto">Contato</p>
+				</a>
+				<a href="" class="link_vertical">
+					<p class="vertical_texto">FAQ</p>
+				</a>
+				<a href="" class="link_vertical">
+					<p class="vertical_texto">Planos</p>
+				</a>
+			</div>
+			<div id="direita_rodape">
+				<a href="melkor.html" class="logo_rodape">
+					<img id="logo_melkor" src="img/logos/melkor_logo.png" />
+				</a>
+				<a href="alianca.html" class="logo_rodape">
+					<img id="logo_alianca" src="img/logos/alianca_logo.png" />
+				</a>
+				<a href="#topo" class="logo_rodape">
+					<img id="rodape_topo_img" src="img/icones_rodape/topo_0.png" />
+				</a>
+				<a href="" id="copyright">
+					<p >Todos os direitos reservados - Melkor Solutions</p>
+				</a>
+			</div>
+		</div>
+	</body>
+</html>
